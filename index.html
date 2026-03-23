@@ -304,6 +304,10 @@
     }
     document.getElementById('themeToggle').addEventListener('click', () => applyTheme(!isDark));
 
+    /* Apply theme from query param (e.g., ?theme=light for iframe embedding) */
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('theme') === 'light') applyTheme(false);
+
     /* ================================================================
        Logo loading (SVG/PNG icons with emoji fallback)
        ================================================================ */
